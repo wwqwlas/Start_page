@@ -420,26 +420,6 @@
         return;
       }
 
-      if (cmd === '/gw' || cmd === '/genwaifu') {
-        (async () => {
-          const typeArg = (args[0] || 'sfw').toLowerCase();
-          const type = typeArg === 'nsfw' ? 'nsfw' : 'sfw';
-          const category = args[1] || 'waifu';
-          setStatus(`Gerando imagem (${type}/${category})...`, 0);
-
-          try {
-            const url = await getWaifu(type, category);
-            if (!url) throw new Error('Nenhuma imagem retornada');
-            showWaifu(url);
-            setStatus(`Imagem gerada: ${type}/${category}`, 2500);
-          } catch (err) {
-            console.error('Falha ao gerar waifu', err);
-            setStatus('Falha ao gerar imagem', 2000);
-          }
-        })();
-        return;
-      }
-
       if (cmd === '/help' || cmd === '/ajuda') {
         const commands = [
           '/help, /ajuda - Mostra ajuda',
@@ -459,7 +439,7 @@
           '/toggleclock - Mostra/oculta relógio',
           'Bangs: !g, !dg, !wk, !yt, !imdb, !gh, !maps'
         ];
-        setStatus(commands.join(' | '), 14000);
+        setStatus(commands.join(' | '), 40000);
         return;
       }
 
