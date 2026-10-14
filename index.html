@@ -4,11 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Liquid Glass Start Page (Fixed)</title>
-<!-- Fonte Inter: moderna e limpa -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-color: #1a0033; /* Cor padrão mais escura */
+    --bg-color: #1a0033;
     --text-color: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.15);
     --shadow-color: rgb(0, 0, 0);
@@ -16,23 +15,21 @@
 
   body {
     margin: 0;
-    /* Use a fonte Inter */
     font-family: 'Inter', sans-serif;
     background: var(--bg-color) center/cover no-repeat fixed;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza a caixa de vidro */
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
     transition: background 0.5s ease, color 0.5s ease;
-    user-select: none; 
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
   }
 
-  /* UPDATED: .glass agora transiciona propriedades de layout/sizing */
   .glass {
     background: var(--glass-bg);
     box-shadow: 0 8px 32px var(--shadow-color);
@@ -41,29 +38,26 @@
     border-radius: 20px;
     padding: 40px 60px;
     text-align: center;
-    /* Simplifica/centraliza transições para tamanho e visual */
     transition: background 0.5s ease, box-shadow 0.5s ease,
                 padding 0.45s ease, margin 0.45s ease,
                 width 0.45s ease, max-width 0.45s ease, border-radius 0.3s ease;
     width: 90%;
     max-width: 500px;
     box-sizing: border-box;
-    margin-top: 50px; 
+    margin-top: 50px;
     margin-bottom: 50px;
   }
-  
-  /* Posição do relógio: topo e centralizado */
+
   .time {
     position: absolute;
-    top: 150px; 
+    top: 150px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3.5em; /* Relógio maior e mais proeminente */
+    font-size: 3.5em;
     font-weight: 550;
     letter-spacing: 2px;
     color: var(--text-color);
     opacity: 0.95;
-    /* ADDED: animações para top e font-size quando o viewport muda */
     transition: top 0.45s ease, font-size 0.45s ease, transform 0.45s ease, color 0.5s ease;
     text-shadow: 0 0 10px var(--shadow-color);
   }
@@ -80,12 +74,10 @@
     margin-bottom: 25px;
     color: var(--text-color);
     font-weight: 700;
-    /* ADDED: transição de tamanho do título ao redimensionar */
     transition: color 0.5s ease, font-size 0.45s ease;
-    cursor: pointer; /* Para o Easter Egg */
+    cursor: pointer;
   }
-  
-  /* Responsividade para telas menores */
+
   @media (max-width: 600px) {
     .glass {
       padding: 30px;
@@ -109,7 +101,6 @@
     background: var(--glass-bg);
     border-radius: 50px;
     padding: 8px 15px;
-    /* ADDED: animação para padding caso mude com responsividade */
     transition: padding 0.35s ease, background 0.35s ease;
   }
 
@@ -143,7 +134,7 @@
   button:hover {
     background: rgba(255, 255, 255, 0.35);
   }
-  
+
   button:active {
     transform: scale(0.98);
   }
@@ -156,7 +147,6 @@
     justify-content: center;
   }
 
-  /* ADDED: transição no tamanho do texto dos links (suaviza mudanças entre breakpoints) */
   .quick-links a {
     color: var(--text-color);
     text-decoration: none;
@@ -165,7 +155,7 @@
     padding: 5px 10px;
     border-radius: 10px;
     transition: color 0.3s ease, opacity 0.3s ease, background 0.3s ease, font-size 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.274)
+    background-color: rgba(0, 0, 0, 0.274);
   }
 
   .quick-links a:hover {
@@ -175,23 +165,6 @@
 
   input[type="file"] {
     display: none;
-  }
-
-  .bg-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--glass-bg);
-    border: none;
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 0 10px var(--shadow-color);
-    font-size: 1.2em;
-    z-index: 10;
-    /* ADDED: suaviza reposicionamento ao redimensionar */
-    transition: top 0.35s ease, right 0.35s ease, background 0.35s ease, transform 0.15s ease;
   }
 
   .status {
@@ -206,14 +179,14 @@
     font-weight: 1000;
   }
 
-  /* ===== Waifu panel (appears under the glass) ===== */
   .waifu-container {
     margin-top: 18px;
-    display: none; /* hidden by default; toggled via JS */
+    display: none;
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
   }
+
   .waifu-inner {
     background: var(--glass-bg);
     box-shadow: 0 8px 24px rgba(0,0,0,0.35);
@@ -226,6 +199,7 @@
     gap: 10px;
     align-items: center;
   }
+
   .waifu-inner img {
     max-width: 100%;
     height: auto;
@@ -233,11 +207,13 @@
     display: block;
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   }
+
   .waifu-actions {
     display: flex;
     gap: 10px;
     align-items: center;
   }
+
   .waifu-actions button {
     background: rgba(255,255,255,0.12);
     color: var(--text-color);
@@ -248,6 +224,7 @@
     font-weight: 600;
     transition: background 0.18s ease, transform 0.06s ease;
   }
+
   .waifu-actions button:hover { background: rgba(255,255,255,0.2); }
   .waifu-actions button:active { transform: scale(0.98); }
 
@@ -256,26 +233,40 @@
     .waifu-actions button { padding: 7px 10px; font-size: 0.95em; }
   }
 
+  .floating-bg-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    background: var(--glass-bg);
+    border: none;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 8px var(--shadow-color);
+    font-size: 1em;
+    z-index: 9999;
+    transition: transform 0.12s ease, opacity 0.25s ease;
+  }
+
+  .floating-bg-btn:hover { transform: translateY(-2px); }
 </style>
 </head>
 <body>
-  <!-- CLOCK (Moved to the top) -->
   <div class="time" id="time"></div>
   <div class="day" id="day"></div>
-  
-  <button class="bg-btn" id="changeBg">mudar fundo</button>
+
   <input type="file" id="bgInput" accept="image/*">
-  
+
   <div class="glass">
-    <!-- Easter Egg Trigger -->
     <h1 id="title"></h1>
-    
+
     <form action="https://www.google.com/search" method="GET">
-      <input type="text" name="q" placeholder="pesquisar ou digitar /ajuda" id="comandInput" />
+      <input type="text" name="q" placeholder="pesquisar ou digitar /ajuda" id="commandInput" autocomplete="off" />
       <button type="submit" id="searchButton">ir</button>
     </form>
-    
-    <div class="quick-links">
+
+    <div class="quick-links" id="quickLinks">
       <a href="https://chat.google.com">Google Chat</a>
       <a href="https://youtube.com">Youtube</a>
       <a href="https://deadshot.io">Deadshot</a>
@@ -283,9 +274,9 @@
       <a href="https://saladofuturo.educacao.sp.gov.br">Sala do Futuro</a>
       <a href="https://wwqwla.itch.io" class="jogos">jogos</a>
     </div>
+
     <div class="status" id="status"></div>
 
-    <!-- WAIFU: container shown when /gw or /genwaifu is used -->
     <div id="waifuContainer" class="waifu-container" aria-hidden="true">
       <div class="waifu-inner" role="region" aria-label="Generated image">
         <img id="waifuImg" alt="Generated waifu" src="" />
@@ -295,103 +286,105 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <script>
-    // --- Time display --------------------------------------------------
     const timeDisplay = document.getElementById('time');
+    const dayDisplay = document.getElementById('day');
+    const bgInput = document.getElementById('bgInput');
+    const status = document.getElementById('status');
+    const title = document.getElementById('title');
+    const quickLinks = document.getElementById('quickLinks');
+
     function updateTime() {
       const now = new Date();
-      // Garante que o formato é sempre 24h ou 12h com AM/PM, limpo.
       timeDisplay.textContent = now.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
     }
     setInterval(updateTime, 1000);
     updateTime();
 
-    //--- Day display ---------------------------------------------------
-    const dayDisplay = document.getElementById('day');
     function updateDay() {
       const now = new Date();
       dayDisplay.textContent = now.toLocaleDateString(navigator.language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
-    setInterval(updateDay, 60000); // Atualiza a cada minuto
+    setInterval(updateDay, 60000);
     updateDay();
 
-    // --- Elements -----------------------------------------------------
-    const bgInput = document.getElementById('bgInput');
-    const changeBg = document.getElementById('changeBg');
-    const status = document.getElementById('status');
-    const title = document.getElementById('title');
-    let currentObjectUrl = null; 
-    
-    // Array of possible random titles
     const randomTitles = [
-        "Hello, wwqwla",
-        "...",
-        "RUN",
-        "hide...",
-        "Hello...",
-        "Why are you here...?",
-        "DON'T TURN LEFT",
-        "It's watching you...",
-        "The cake is a lie.",
-        "Stay awhile and listen.",
-        "I see you.",
-        "Welcome back.",
-        "Good luck.",
-        "Don't enjoy your stay.",
-        "This is not the page you're looking for.",
-        "Hm...Did you miss me?",
-        "Sshh...",
-        "is my glass glassy enough?",
-        "Just another start page.",
-        "...The CUBE is a god.",
-        "CUBE is love. CUBE is life.",
-        "CUBE must be praised.",
-        "CUBE knows your secrets.",
-        "CUBE sees all.",
-        "CUBE is watching.",
-        "Embrace the CUBE.",
-        "CUBE is eternal.",
-        "Erm...What the sigma?",
-        "Beware the CUBE.",
-        "CUBE will find you.",
-        "CUBE demands tribute.",
-        "CUBE is inevitable.",
-        "CUBE is the way.",
-        "CUBE is the future.",
-        "CUBE is the answer.",
-        "CUBE is the beginning.",
-        "CUBE is the end.",
-        "CUBE is sad :("
+      'Hello, wwqwla', '...', 'RUN', 'hide...', 'Hello...', 'Why are you here...?',
+      "DON'T TURN LEFT", "It's watching you...", 'The cake is a lie.',
+      'Stay awhile and listen.', 'I see you.', 'Welcome back.', 'Good luck.',
+      "Don't enjoy your stay.", "This is not the page you're looking for.",
+      'Hm...Did you miss me?', 'Sshh...', 'is my glass glassy enough?',
+      'Just another start page.', '...The CUBE is a god.', 'CUBE is love. CUBE is life.',
+      'CUBE must be praised.', 'CUBE knows your secrets.', 'CUBE sees all.',
+      'CUBE is watching.', 'Embrace the CUBE.', 'CUBE is eternal.',
+      'Erm...What the sigma?', 'Beware the CUBE.', 'CUBE will find you.',
+      'CUBE demands tribute.', 'CUBE is inevitable.', 'CUBE is the way.',
+      'CUBE is the future.', 'CUBE is the answer.', 'CUBE is the beginning.',
+      'CUBE is the end.', 'CUBE is sad :('
     ];
 
-    // Load saved title or use a random one
-  const savedTitle = localStorage.getItem('startTitle');
-  // If a title was previously saved, always prefer it. Otherwise pick a random one.
-  if (savedTitle) {
-    title.textContent = savedTitle;
-  } else {
-    const randomIndex = Math.floor(Math.random() * randomTitles.length);
-    title.textContent = randomTitles[randomIndex];
-  }
+    const savedTitle = localStorage.getItem('startTitle');
+    if (savedTitle) {
+      title.textContent = savedTitle;
+    } else {
+      const randomIndex = Math.floor(Math.random() * randomTitles.length);
+      title.textContent = randomTitles[randomIndex];
+    }
 
-    // Form / command handling
     const form = document.querySelector('form');
-    const commandInput = document.getElementById('comandInput');
+    const commandInput = document.getElementById('commandInput');
 
     form.addEventListener('submit', (e) => {
       const raw = commandInput.value.trim();
-      if (!raw) return; // deixa comportamento normal (busca) quando vazio
+      if (!raw) return;
+
+      if (raw.startsWith('!')) {
+        e.preventDefault();
+        handleBang(raw);
+        commandInput.value = '';
+        return;
+      }
+
       if (raw.startsWith('/')) {
         e.preventDefault();
         handleCommand(raw);
         commandInput.value = '';
-        return;
       }
-      // se não for comando, deixa ir para o google (comportamento atual)
     });
+
+    function handleBang(raw) {
+      const parts = raw.split(' ').filter(Boolean);
+      const bang = parts[0].toLowerCase();
+      const query = encodeURIComponent(parts.slice(1).join(' '));
+      const map = {
+        '!g': `https://www.google.com/search?q=${query}`,
+        '!dg': `https://duckduckgo.com/?q=${query}`,
+        '!wk': `https://en.wikipedia.org/w/index.php?search=${query}`,
+        '!yt': `https://www.youtube.com/results?search_query=${query}`,
+        '!gh': `https://github.com/search?q=${query}`,
+        '!imdb': `https://www.imdb.com/find?q=${query}`,
+        '!maps': `https://www.google.com/maps/search/${query}`
+      };
+
+      const url = map[bang];
+      if (url) {
+        window.location.href = url;
+      } else {
+        status.textContent = `Bang desconhecido: ${bang}`;
+        setTimeout(() => status.textContent = '', 1600);
+      }
+    }
+
+    function setStatus(text, timeout = 1800) {
+      status.textContent = text;
+      if (timeout > 0) {
+        setTimeout(() => {
+          if (status.textContent === text) status.textContent = '';
+        }, timeout);
+      }
+    }
 
     function handleCommand(input) {
       const parts = input.split(' ').filter(Boolean);
@@ -399,98 +392,292 @@
       const args = parts.slice(1);
 
       if (cmd === '/cg') {
-        // /cg novo título...
         const newTitle = args.join(' ') || 'Start Page';
         title.textContent = newTitle;
         localStorage.setItem('startTitle', newTitle);
-        status.textContent = `Título definido: "${newTitle}"`;
-        setTimeout(() => status.textContent = '', 2200);
+        setStatus(`Título definido: "${newTitle}"`, 2200);
+        return;
+      }
+
+      if (cmd === '/resettitle') {
+        localStorage.removeItem('startTitle');
+        const randomIndex = Math.floor(Math.random() * randomTitles.length);
+        title.textContent = randomTitles[randomIndex];
+        setStatus('Título resetado', 1600);
         return;
       }
 
       if (cmd === '/confetti' || cmd === '/confetti!') {
-        // /confetti [count] [duration]
         let count = 120, duration = 3000;
         if (args[0] && !Number.isNaN(Number(args[0]))) count = Math.max(10, Number(args[0]));
         if (args[1] && !Number.isNaN(Number(args[1]))) duration = Math.max(200, Number(args[1]));
         if (typeof window.launchConfetti === 'function') {
           window.launchConfetti(count, duration);
-          status.textContent = `Confetti: ${count} peças, ${duration}ms`;
-          setTimeout(() => status.textContent = '', 2000);
+          setStatus(`Confetti: ${count} peças, ${duration}ms`, 2000);
         } else {
-          status.textContent = 'Confetti indisponível';
-          setTimeout(() => status.textContent = '', 1600);
+          setStatus('Confetti indisponível', 1600);
         }
         return;
       }
 
-      // NEW: /gw or /genwaifu command
       if (cmd === '/gw' || cmd === '/genwaifu') {
         (async () => {
           const typeArg = (args[0] || 'sfw').toLowerCase();
-          const type = (typeArg === 'nsfw') ? 'nsfw' : 'sfw';
+          const type = typeArg === 'nsfw' ? 'nsfw' : 'sfw';
           const category = args[1] || 'waifu';
-          status.textContent = `Gerando imagem (${type}/${category})...`;
+          setStatus(`Gerando imagem (${type}/${category})...`, 0);
+
           try {
             const url = await getWaifu(type, category);
             if (!url) throw new Error('Nenhuma imagem retornada');
             showWaifu(url);
-            status.textContent = `Imagem gerada: ${type}/${category}`;
-            setTimeout(() => status.textContent = '', 2500);
+            setStatus(`Imagem gerada: ${type}/${category}`, 2500);
           } catch (err) {
             console.error('Falha ao gerar waifu', err);
-            status.textContent = 'Falha ao gerar imagem';
-            setTimeout(() => status.textContent = '', 2000);
+            setStatus('Falha ao gerar imagem', 2000);
           }
         })();
         return;
       }
 
-      // NEW: help command
       if (cmd === '/help' || cmd === '/ajuda') {
         const commands = [
-          '/help, /ajuda - Mostra esta ajuda',
-          '/cg [título] - Muda o título da página',
-          '/confetti [qtd] [duração] - Lança confetes',
-          '/gw, /genwaifu [sfw/nsfw] [categoria] - Gera uma waifu'
+          '/help, /ajuda - Mostra ajuda',
+          '/cg [título] - Muda o título',
+          '/resettitle - Restaura título aleatório',
+          '/confetti [qtd] [duração] - Confetes',
+          '/gw, /genwaifu [sfw/nsfw] [categoria] - Waifu',
+          '/bgfile - Abre seletor de imagem',
+          '/bgurl [url] - Define fundo por URL',
+          '/bgclear - Remove fundo salvo',
+          '/bgbutton show|hide - Cria/remove botão de fundo',
+          '/addlink [label] [url] - Adiciona link rápido',
+          '/rmlink [label] - Remove link rápido',
+          '/listlinks - Lista links',
+          '/note add|list|del [key] [text] - Notas',
+          '/theme light|dark - Muda tema',
+          '/toggleclock - Mostra/oculta relógio',
+          'Bangs: !g, !dg, !wk, !yt, !imdb, !gh, !maps'
         ];
-        status.textContent = commands.join(' | ');
-        setTimeout(() => status.textContent = '', 8000);
+        setStatus(commands.join(' | '), 14000);
         return;
       }
 
-      // comando desconhecido
-      status.textContent = `Comando desconhecido: ${cmd}`;
-      setTimeout(() => status.textContent = '', 1800);
-    }
-    
-    changeBg.addEventListener('click', () => bgInput.click());
+      if (cmd === '/bgfile') {
+        bgInput.click();
+        setStatus('Escolha um arquivo de imagem', 1200);
+        return;
+      }
 
-    // Listener para carregar o arquivo
+      if (cmd === '/bgurl') {
+        const value = args[0];
+        if (!value) {
+          setStatus('Use: /bgurl http://...', 1800);
+          return;
+        }
+
+        (async () => {
+          try {
+            setStatus('Baixando imagem...', 0);
+            const res = await fetch(value, { mode: 'cors' });
+            if (!res.ok) throw new Error('fetch failed');
+            const blob = await res.blob();
+            await saveBackgroundFile(blob);
+            setStatus('Fundo definido via URL', 1600);
+          } catch (err) {
+            console.error('bgurl failed', err);
+            setStatus('Falha ao baixar imagem', 1800);
+          }
+        })();
+        return;
+      }
+
+      if (cmd === '/bgclear') {
+        (async () => {
+          try {
+            await clearSavedBackground();
+            setStatus('Fundo removido', 1600);
+          } catch (err) {
+            console.error(err);
+            setStatus('Falha ao remover fundo', 1800);
+          }
+        })();
+        return;
+      }
+
+      if (cmd === '/bgbutton') {
+        const action = args[0] && args[0].toLowerCase();
+        if (action === 'show' || action === 'on') {
+          createBgButton();
+          localStorage.setItem('bgButtonShown', '1');
+          setStatus('Botão de fundo criado', 1200);
+        } else if (action === 'hide' || action === 'off') {
+          removeBgButton();
+          localStorage.removeItem('bgButtonShown');
+          setStatus('Botão de fundo removido', 1200);
+        } else {
+          setStatus('Use: /bgbutton show|hide', 1600);
+        }
+        return;
+      }
+
+      if (cmd === '/addlink') {
+        const label = args[0];
+        const url = args[1];
+        if (!label || !url) {
+          setStatus('Use: /addlink label url', 1600);
+          return;
+        }
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.textContent = label;
+        quickLinks.appendChild(a);
+        saveQuickLinksFromDOM();
+        setStatus(`Link '${label}' adicionado`, 1400);
+        return;
+      }
+
+      if (cmd === '/rmlink') {
+        const label = args.join(' ');
+        if (!label) {
+          setStatus('Use: /rmlink label', 1600);
+          return;
+        }
+
+        const items = Array.from(quickLinks.querySelectorAll('a'));
+        const match = items.find(a => a.textContent === label);
+        if (match) {
+          match.remove();
+          saveQuickLinksFromDOM();
+          setStatus(`Link '${label}' removido`, 1400);
+        } else {
+          setStatus(`Link não encontrado: ${label}`, 1600);
+        }
+        return;
+      }
+
+      if (cmd === '/listlinks') {
+        const items = Array.from(quickLinks.querySelectorAll('a')).map(a => `${a.textContent} -> ${a.href}`);
+        setStatus(items.join(' | ') || 'Nenhum quick link', 8000);
+        return;
+      }
+
+      if (cmd === '/note') {
+        const sub = args[0];
+        const key = args[1];
+
+        if (sub === 'add') {
+          const text = args.slice(2).join(' ');
+          if (!key || !text) {
+            setStatus('Use: /note add key texto', 1600);
+            return;
+          }
+          localStorage.setItem('note_' + key, text);
+          setStatus(`Nota '${key}' salva`, 1400);
+          return;
+        }
+
+        if (sub === 'list') {
+          const keys = Object.keys(localStorage).filter(k => k.startsWith('note_'));
+          const items = keys.map(k => `${k.replace('note_', '')}: ${localStorage.getItem(k)}`);
+          setStatus(items.join(' | ') || 'Sem notas', 10000);
+          return;
+        }
+
+        if (sub === 'del') {
+          if (!key) {
+            setStatus('Use: /note del key', 1600);
+            return;
+          }
+          localStorage.removeItem('note_' + key);
+          setStatus(`Nota '${key}' removida`, 1400);
+          return;
+        }
+
+        setStatus('Use: /note add|list|del ...', 1600);
+        return;
+      }
+
+      if (cmd === '/theme') {
+        const val = args[0] && args[0].toLowerCase();
+        if (val === 'light') {
+          document.documentElement.style.setProperty('--text-color', '#000');
+          document.documentElement.style.setProperty('--glass-bg', 'rgba(255,255,255,0.45)');
+          document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.25)');
+          setStatus('Tema claro', 1400);
+        } else if (val === 'dark') {
+          document.documentElement.style.setProperty('--text-color', '#fff');
+          document.documentElement.style.setProperty('--glass-bg', 'rgba(0,0,0,0.35)');
+          document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.6)');
+          setStatus('Tema escuro', 1400);
+        } else {
+          setStatus('Use: /theme light|dark', 1600);
+        }
+        return;
+      }
+
+      if (cmd === '/toggleclock') {
+        let visible = true;
+        const current = timeDisplay.style.display !== 'none';
+        visible = !current;
+        timeDisplay.style.display = visible ? 'block' : 'none';
+        dayDisplay.style.display = visible ? 'block' : 'none';
+        setStatus(visible ? 'Relógio mostrado' : 'Relógio oculto', 1200);
+        return;
+      }
+
+      setStatus(`Comando desconhecido: ${cmd}`, 1800);
+    }
+
+    function loadQuickLinks() {
+      try {
+        const raw = localStorage.getItem('quickLinks_v1');
+        if (!raw) return;
+        const arr = JSON.parse(raw);
+        quickLinks.innerHTML = '';
+        arr.forEach(link => {
+          const a = document.createElement('a');
+          a.href = link.url;
+          a.textContent = link.label;
+          if (link.className) a.className = link.className;
+          quickLinks.appendChild(a);
+        });
+      } catch (err) {
+        console.warn('Failed to load quick links', err);
+      }
+    }
+
+    function saveQuickLinksFromDOM() {
+      const arr = Array.from(quickLinks.querySelectorAll('a')).map(link => ({
+        label: link.textContent,
+        url: link.href,
+        className: link.className || ''
+      }));
+      localStorage.setItem('quickLinks_v1', JSON.stringify(arr));
+    }
+
+    loadQuickLinks();
+
     bgInput.addEventListener('change', async (e) => {
       const file = e.target.files && e.target.files[0];
       if (!file) return;
-
-      status.textContent = 'Saving background...';
-
       try {
         await saveBackgroundFile(file);
-        console.log('Background saved successfully.');
       } catch (err) {
         console.error('Failed saving background', err);
       }
-      status.textContent = '';
+      bgInput.value = '';
     });
 
-    // --- IndexedDB helpers (save/retrieve blob) ------------------------
     const DB_NAME = 'liquid-glass-start';
     const STORE_NAME = 'assets';
     const KEY = 'background';
 
     function openDB() {
       return new Promise((resolve, reject) => {
-        const req = indexedDB.open(DB_NAME, 2); // Increased version to ensure upgrade
-        req.onupgradeneeded = (event) => {
+        const req = indexedDB.open(DB_NAME, 2);
+        req.onupgradeneeded = () => {
           const db = req.result;
           if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
         };
@@ -515,113 +702,97 @@
       return new Promise((resolve, reject) => {
         const tx = db.transaction(STORE_NAME, 'readonly');
         const store = tx.objectStore(STORE_NAME);
-        const getReq = store.get(key);
-        getReq.onsuccess = () => resolve(getReq.result);
-        getReq.onerror = () => reject(getReq.error);
-      });
-    }
-
-    // Save a background File/Blob into IndexedDB and update page background + theme
-    async function saveBackgroundFile(file) {
-      if (!file) throw new Error('No file provided');
-      try {
-        // Revoke previous object url if any
-        if (currentObjectUrl) {
-          try { URL.revokeObjectURL(currentObjectUrl); } catch (e) { /* ignore */ }
-          currentObjectUrl = null;
-        }
-
-        // Store the blob in IDB
-        await saveBlobToIDB(KEY, file);
-
-        // Create an object URL and set as background
-        const objUrl = URL.createObjectURL(file);
-        currentObjectUrl = objUrl;
-        document.body.style.background = `url('${objUrl}') center/cover no-repeat fixed`;
-
-        // Adapt the theme colors based on the image
-        await adaptThemeFromBlob(file);
-
-        // Friendly status update
-        status.textContent = 'Fundo salvo';
-        setTimeout(() => { status.textContent = ''; }, 1600);
-        return true;
-      } catch (err) {
-        console.error('saveBackgroundFile failed', err);
-        status.textContent = 'Falha ao salvar fundo';
-        setTimeout(() => { status.textContent = ''; }, 1800);
-        throw err;
-      }
-    }
-
-    // NEW: helpers to save/restore simple strings (e.g. API key)
-    async function saveStringToIDB(keyName, str) {
-      const db = await openDB();
-      return new Promise((resolve, reject) => {
-        const tx = db.transaction(STORE_NAME, 'readwrite');
-        const store = tx.objectStore(STORE_NAME);
-        const req = store.put(str, keyName);
-        req.onsuccess = () => resolve(true);
-        req.onerror = () => reject(req.error);
-      });
-    }
-
-    async function getStringFromIDB(keyName) {
-      const db = await openDB();
-      return new Promise((resolve, reject) => {
-        const tx = db.transaction(STORE_NAME, 'readonly');
-        const store = tx.objectStore(STORE_NAME);
-        const req = store.get(keyName);
+        const req = store.get(key);
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
       });
     }
 
-    // --- Theme adaptation helpers (to switch between light/dark glass) ------------------------------------
+    async function deleteBlobFromIDB(key) {
+      const db = await openDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.delete(key);
+        req.onsuccess = () => resolve(true);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    let currentObjectUrl = null;
+
+    async function saveBackgroundFile(file) {
+      if (!file) throw new Error('No file provided');
+
+      if (currentObjectUrl) {
+        URL.revokeObjectURL(currentObjectUrl);
+        currentObjectUrl = null;
+      }
+
+      await saveBlobToIDB(KEY, file);
+      currentObjectUrl = URL.createObjectURL(file);
+      document.body.style.background = `url('${currentObjectUrl}') center/cover no-repeat fixed`;
+      await adaptThemeFromBlob(file);
+      return true;
+    }
+
+    async function clearSavedBackground() {
+      if (currentObjectUrl) {
+        URL.revokeObjectURL(currentObjectUrl);
+        currentObjectUrl = null;
+      }
+      await deleteBlobFromIDB(KEY);
+      document.body.style.background = 'var(--bg-color) center/cover no-repeat fixed';
+      document.documentElement.style.setProperty('--text-color', '#fff');
+      document.documentElement.style.setProperty('--glass-bg', 'rgba(255,255,255,0.15)');
+      document.documentElement.style.setProperty('--shadow-color', 'rgb(0, 0, 0)');
+    }
+
     async function adaptThemeFromBlob(blob) {
       const url = URL.createObjectURL(blob);
       await adaptThemeCommon(url);
       URL.revokeObjectURL(url);
     }
 
-    async function adaptThemeCommon(imageSrc) {
+    function adaptThemeCommon(imageSrc) {
       return new Promise((resolve) => {
         const img = new Image();
         img.crossOrigin = 'Anonymous';
         img.src = imageSrc;
-        
+
         img.onload = () => {
           const w = 60, h = 60;
           const canvas = document.createElement('canvas');
-          canvas.width = w; canvas.height = h;
+          canvas.width = w;
+          canvas.height = h;
           const ctx = canvas.getContext('2d');
-          
-          try { 
-            ctx.drawImage(img, 0, 0, w, h); 
+
+          try {
+            ctx.drawImage(img, 0, 0, w, h);
             const data = ctx.getImageData(0, 0, w, h).data;
-            
             let r = 0, g = 0, b = 0, count = 0;
             for (let i = 0; i < data.length; i += 4) {
-              r += data[i]; g += data[i+1]; b += data[i+2]; count++;
+              r += data[i];
+              g += data[i + 1];
+              b += data[i + 2];
+              count++;
             }
-            r = Math.round(r / count); g = Math.round(g / count); b = Math.round(b / count);
+            r = Math.round(r / count);
+            g = Math.round(g / count);
+            b = Math.round(b / count);
             const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            
-            // Se a imagem for clara
+
             if (brightness > 140) {
               document.documentElement.style.setProperty('--text-color', '#000');
               document.documentElement.style.setProperty('--glass-bg', 'rgba(255,255,255,0.45)');
               document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.25)');
-            } else { 
-              // Se a imagem for escura
+            } else {
               document.documentElement.style.setProperty('--text-color', '#fff');
               document.documentElement.style.setProperty('--glass-bg', 'rgba(0,0,0,0.35)');
               document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.6)');
             }
-            
-          } catch (e) { 
+          } catch (e) {
             console.warn('Theme adaptation failed.', e);
-            // Fallback para o tema escuro padrão
             document.documentElement.style.setProperty('--text-color', '#fff');
             document.documentElement.style.setProperty('--glass-bg', 'rgba(0,0,0,0.3)');
             document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.5)');
@@ -629,317 +800,315 @@
 
           resolve();
         };
-        img.onerror = () => resolve(); // Falha silenciosamente
+
+        img.onerror = () => resolve();
       });
     }
 
-    // --- Load previously saved background ----------------------------
-    (async function loadSavedBackground(){
+    (async function loadSavedBackground() {
       try {
         const blob = await getBlobFromIDB(KEY);
         if (blob) {
           if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
-          const url = URL.createObjectURL(blob);
-          currentObjectUrl = url;
-          
-          document.body.style.background = `url('${url}') center/cover no-repeat fixed`;
-          adaptThemeFromBlob(blob);
+          currentObjectUrl = URL.createObjectURL(blob);
+          document.body.style.background = `url('${currentObjectUrl}') center/cover no-repeat fixed`;
+          await adaptThemeFromBlob(blob);
         }
       } catch (err) {
         console.warn('Could not load saved background', err);
       }
     })();
-    
-    // --- EASTER EGG (Konami-like sequence: up up down down left right left right space enter) ----
-    (function(){
-        const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','Space','Enter'];
-        let pos = 0;
 
-        function resetSeqIfNeeded(code) {
-            // se a mesma tecla é o começo da sequência, avance para 1; caso contrário zera
-            pos = (code === sequence[0]) ? 1 : 0;
+    function createBgButton() {
+      if (document.getElementById('dynamicBgBtn')) return;
+      const btn = document.createElement('button');
+      btn.id = 'dynamicBgBtn';
+      btn.className = 'floating-bg-btn';
+      btn.textContent = 'fundo';
+      btn.title = 'Clique para trocar o fundo';
+      btn.addEventListener('click', () => bgInput.click());
+      btn.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        clearSavedBackground();
+        setStatus('Fundo removido', 1400);
+      });
+      document.body.appendChild(btn);
+    }
+
+    function removeBgButton() {
+      const btn = document.getElementById('dynamicBgBtn');
+      if (btn) btn.remove();
+    }
+
+    if (localStorage.getItem('bgButtonShown')) createBgButton();
+
+    async function getWaifu(type = 'sfw', category = 'waifu') {
+      const API = `https://api.waifu.pics/${type}/${category}`;
+      const maxRetries = 2;
+
+      for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        try {
+          const res = await fetch(API);
+          if (!res.ok) throw new Error(`Erro ${res.status}`);
+          const data = await res.json();
+          if (data && data.url) return data.url;
+          throw new Error('Nenhuma URL retornada');
+        } catch (err) {
+          if (attempt === maxRetries) {
+            console.error('Falha ao buscar imagem após tentativas:', err);
+            throw err;
+          }
+          await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
+        }
+      }
+    }
+
+    const waifuContainer = document.getElementById('waifuContainer');
+    const waifuImg = document.getElementById('waifuImg');
+    const downloadBtn = document.getElementById('downloadWaifu');
+    const closeBtn = document.getElementById('closeWaifu');
+
+    function showWaifu(url) {
+      waifuImg.src = url;
+      waifuImg.alt = 'Generated image';
+      waifuContainer.style.display = 'flex';
+      waifuContainer.hidden = false;
+      waifuContainer.setAttribute('aria-hidden', 'false');
+      waifuContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function hideWaifu() {
+      waifuImg.src = '';
+      waifuContainer.style.display = 'none';
+      waifuContainer.hidden = true;
+      waifuContainer.setAttribute('aria-hidden', 'true');
+    }
+
+    async function downloadWaifu(url) {
+      try {
+        downloadBtn.disabled = true;
+        downloadBtn.textContent = 'baixando...';
+        const res = await fetch(url, { mode: 'cors' });
+        if (!res.ok) throw new Error('fetch failed');
+        const blob = await res.blob();
+        const ext = (blob.type && blob.type.split('/')[1]) ? `.${blob.type.split('/')[1].split('+')[0]}` : '';
+        const a = document.createElement('a');
+        const objUrl = URL.createObjectURL(blob);
+        a.href = objUrl;
+        a.download = `waifu${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(objUrl);
+      } catch (err) {
+        console.error('Download failed', err);
+        setStatus('Falha no download', 1800);
+      } finally {
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = 'download';
+      }
+    }
+
+    downloadBtn.addEventListener('click', () => {
+      if (waifuImg.src) downloadWaifu(waifuImg.src);
+    });
+    closeBtn.addEventListener('click', hideWaifu);
+
+    (function () {
+      const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'Space', 'Enter'];
+      let pos = 0;
+
+      function resetSeqIfNeeded(code) {
+        pos = (code === sequence[0]) ? 1 : 0;
+      }
+
+      document.addEventListener('keydown', (e) => {
+        const code = e.code;
+        if (code === sequence[pos]) {
+          pos++;
+          if (pos === sequence.length) {
+            pos = 0;
+            triggerKonami();
+          }
+        } else {
+          resetSeqIfNeeded(code);
+        }
+      });
+
+      function triggerKonami() {
+        const originalText = title.textContent;
+        title.textContent = 'Yay! 🎉';
+        launchConfetti(180, 4000);
+        setTimeout(() => title.textContent = originalText, 1200);
+      }
+
+      function launchConfetti(count = 120, duration = 3000) {
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const colors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590', '#277da1'];
+        const pieces = [];
+        for (let i = 0; i < count; i++) {
+          pieces.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * -canvas.height * 0.5,
+            w: 6 + Math.random() * 8,
+            h: 8 + Math.random() * 12,
+            vx: -2 + Math.random() * 4,
+            vy: 2 + Math.random() * 6,
+            rot: Math.random() * Math.PI * 2,
+            vr: -0.1 + Math.random() * 0.2,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            tilt: Math.random() * 0.5
+          });
         }
 
-        document.addEventListener('keydown', (e) => {
-            const code = e.code; // usa event.code para consistência
-            if (code === sequence[pos]) {
-                pos++;
-                if (pos === sequence.length) {
-                    pos = 0;
-                    triggerKonami();
-                }
-            } else {
-                resetSeqIfNeeded(code);
-            }
-        });
+        const start = performance.now();
+        (function frame(now) {
+          const t = now - start;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (const p of pieces) {
+            p.x += p.vx;
+            p.y += p.vy + Math.sin((now + p.x) * 0.01) * 0.5;
+            p.rot += p.vr;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            ctx.restore();
+          }
 
-        // Trigger: muda título rapidamente e mostra bastante confete
-        function triggerKonami() {
-            const originalText = title.textContent;
-            title.textContent = "Yay! 🎉"; // feedback imediato
-            launchConfetti(180, 4000);
-            setTimeout(() => title.textContent = originalText, 1200);
-        }
+          if (t < duration) {
+            requestAnimationFrame(frame);
+          } else {
+            setTimeout(() => {
+              window.removeEventListener('resize', resize);
+              document.body.removeChild(canvas);
+            }, 800);
+          }
+        })(start);
+      }
 
-        // Confetti simples em canvas (livre de bibliotecas)
-        function launchConfetti(count = 120, duration = 3000) {
-            const canvas = document.createElement('canvas');
-            canvas.style.position = 'fixed';
-            canvas.style.left = '0';
-            canvas.style.top = '0';
-            canvas.style.width = '100%';
-            canvas.style.height = '100%';
-            canvas.style.pointerEvents = 'none';
-            canvas.style.zIndex = '9999';
-            document.body.appendChild(canvas);
-
-            const ctx = canvas.getContext('2d');
-            function resize() {
-                canvas.width = innerWidth;
-                canvas.height = innerHeight;
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            const colors = ['#f94144','#f3722c','#f8961e','#f9c74f','#90be6d','#43aa8b','#577590','#277da1'];
-            const pieces = [];
-            for (let i = 0; i < count; i++) {
-                pieces.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * -canvas.height * 0.5,
-                    w: 6 + Math.random() * 8,
-                    h: 8 + Math.random() * 12,
-                    vx: -2 + Math.random() * 4,
-                    vy: 2 + Math.random() * 6,
-                    rot: Math.random() * Math.PI * 2,
-                    vr: -0.1 + Math.random() * 0.2,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    tilt: Math.random() * 0.5
-                });
-            }
-
-            const start = performance.now();
-            (function frame(now) {
-                const t = now - start;
-                ctx.clearRect(0,0,canvas.width,canvas.height);
-                for (let p of pieces) {
-                    p.x += p.vx;
-                    p.y += p.vy + Math.sin((now + p.x) * 0.01) * 0.5;
-                    p.rot += p.vr;
-                    // desenha retângulo rotacionado (confete)
-                    ctx.save();
-                    ctx.translate(p.x, p.y);
-                    ctx.rotate(p.rot);
-                    ctx.fillStyle = p.color;
-                    ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
-                    ctx.restore();
-                }
-                if (t < duration) {
-                    requestAnimationFrame(frame);
-                } else {
-                    // anima saída: deixa cair o restante e remove
-                    setTimeout(() => {
-                        window.removeEventListener('resize', resize);
-                        document.body.removeChild(canvas);
-                    }, 800);
-                }
-            })(start);
-        }
-        // Expor a função para que outros handlers (ex: comando /confetti) possam chamá-la
-        window.launchConfetti = launchConfetti;
+      window.launchConfetti = launchConfetti;
     })();
 
-    // --- Make viewport resize transitions feel smooth (debounced) ---
-    // Ao redimensionar a janela, alguns navegadores fazem mudanças imediatas.
-    // Este pequeno debounce força uma leve revalidação mantendo as transições CSS.
-    (function(){
+    (function () {
       let resizeTimer = null;
       window.addEventListener('resize', () => {
-        // opcional: adicionar uma classe se quiser estilizar diferente durante o resize
         document.documentElement.classList.add('is-resizing');
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-          // pequena "forçada" de reflow/atualização (não intrusiva)
           document.documentElement.classList.remove('is-resizing');
           resizeTimer = null;
-        }, 180); // remove a classe 180ms após o último evento resize
+        }, 180);
       });
     })();
-    
-    // Waifu command
 
-    async function getWaifu(type = 'sfw', category = 'waifu') {
-    const API = `https://api.waifu.pics/${type}/${category}`;
-    const maxRetries = 2; // além da tentativa inicial, tenta mais 2 vezes
-    for (let attempt = 0; attempt <= maxRetries; attempt++) {
-      try {
-        const res = await fetch(API);
-        if (!res.ok) throw new Error(`Erro ${res.status}`);
-        const data = await res.json();
-        if (data && data.url) return data.url; // sucesso
-        throw new Error('Nenhuma URL retornada');
-      } catch (err) {
-        if (attempt === maxRetries) {
-          console.error('Falha ao buscar imagem após tentativas:', err);
-          throw err; // todas as tentativas falharam -> propaga o erro
-        }
-        // pequeno atraso antes de tentar novamente (backoff linear)
-        await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
-      }
-    }
-  }
+    (function () {
+      let lastClickTime = 0;
+      let clickCount = 0;
 
-  // ---- Waifu UI helpers ------------------------------------------------
-  const waifuContainer = document.getElementById('waifuContainer');
-  const waifuImg = document.getElementById('waifuImg');
-  const downloadBtn = document.getElementById('downloadWaifu');
-  const closeBtn = document.getElementById('closeWaifu');
-
-  function showWaifu(url) {
-    waifuImg.src = url;
-    waifuImg.alt = 'Generated image';
-    waifuContainer.style.display = 'flex';
-    waifuContainer.hidden = false;
-    waifuContainer.setAttribute('aria-hidden', 'false');
-    // scroll into view so it's visible under the glass on small screens
-    waifuContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function hideWaifu() {
-    waifuImg.src = '';
-    waifuContainer.style.display = 'none';
-    waifuContainer.hidden = true;
-    waifuContainer.setAttribute('aria-hidden', 'true');
-  }
-
-  // Download via fetch to ensure we get a blob (and filename)
-  async function downloadWaifu(url) {
-    try {
-      downloadBtn.disabled = true;
-      downloadBtn.textContent = 'baixando...';
-      const res = await fetch(url, { mode: 'cors' });
-      if (!res.ok) throw new Error('fetch failed');
-      const blob = await res.blob();
-      const ext = (blob.type && blob.type.split('/')[1]) ? `.${blob.type.split('/')[1].split('+')[0]}` : '';
-      const a = document.createElement('a');
-      const objUrl = URL.createObjectURL(blob);
-      a.href = objUrl;
-      a.download = `waifu${ext}`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(objUrl);
-    } catch (err) {
-      console.error('Download failed', err);
-      status.textContent = 'Falha no download';
-      setTimeout(() => status.textContent = '', 1800);
-    } finally {
-      downloadBtn.disabled = false;
-      downloadBtn.textContent = 'download';
-    }
-  }
-
-  downloadBtn.addEventListener('click', () => {
-    if (waifuImg.src) downloadWaifu(waifuImg.src);
-  });
-  closeBtn.addEventListener('click', hideWaifu);
-
-    // Add new easter egg (double click + space)
-    (function(){
-        let lastClickTime = 0;
-        let clickCount = 0;
-        
-        document.addEventListener('click', (e) => {
-            const now = Date.now();
-            if (now - lastClickTime < 300) {
-                clickCount++;
-                if (clickCount === 2) {
-                    // Wait for spacebar
-                    const spaceHandler = (e) => {
-                        if (e.code === 'Space') {
-                            e.preventDefault();
-                            document.removeEventListener('keydown', spaceHandler);
-                            triggerMatrixEasterEgg();
-                        }
-                    };
-                    document.addEventListener('keydown', spaceHandler);
-                    // Reset after 1s if no spacebar
-                    setTimeout(() => {
-                        document.removeEventListener('keydown', spaceHandler);
-                        clickCount = 0;
-                    }, 1000);
-                }
-            } else {
-                clickCount = 1;
-            }
-            lastClickTime = now;
-        });
-
-        function triggerMatrixEasterEgg() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
-            const streams = [];
-            const canvas = document.createElement('canvas');
-            canvas.style.position = 'fixed';
-            canvas.style.left = '0';
-            canvas.style.top = '0';
-            canvas.style.width = '100%';
-            canvas.style.height = '100%';
-            canvas.style.zIndex = '9998';
-            canvas.style.opacity = '0.8';
-            canvas.style.pointerEvents = 'none';
-            document.body.appendChild(canvas);
-
-            function resize() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < Math.floor(canvas.width / 20); i++) {
-                streams.push({
-                    x: i * 20,
-                    y: Math.random() * -100,
-                    speed: 3 + Math.random() * 5,
-                    chars: Array(Math.floor(5 + Math.random() * 15))
-                        .fill()
-                        .map(() => chars[Math.floor(Math.random() * chars.length)])
-                });
-            }
-
-            let frameId;
-            function animate() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                ctx.fillStyle = '#0F0';
-                ctx.font = '15px monospace';
-                
-                streams.forEach(stream => {
-                    stream.chars.forEach((char, i) => {
-                        ctx.fillText(char, stream.x, stream.y - i * 20);
-                    });
-                    stream.y += stream.speed;
-                    if (stream.y > canvas.height + stream.chars.length * 20) {
-                        stream.y = Math.random() * -100;
-                    }
-                });
-                
-                frameId = requestAnimationFrame(animate);
-            }
-            
-            animate();
-            
-            // Stop after 4 seconds
+      document.addEventListener('click', () => {
+        const now = Date.now();
+        if (now - lastClickTime < 300) {
+          clickCount++;
+          if (clickCount === 2) {
+            const spaceHandler = (e) => {
+              if (e.code === 'Space') {
+                e.preventDefault();
+                document.removeEventListener('keydown', spaceHandler);
+                triggerMatrixEasterEgg();
+              }
+            };
+            document.addEventListener('keydown', spaceHandler);
             setTimeout(() => {
-                cancelAnimationFrame(frameId);
-                document.body.removeChild(canvas);
-            }, 4000);
+              document.removeEventListener('keydown', spaceHandler);
+              clickCount = 0;
+            }, 1000);
+          }
+        } else {
+          clickCount = 1;
         }
+        lastClickTime = now;
+      });
+
+      function triggerMatrixEasterEgg() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
+        const streams = [];
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '9998';
+        canvas.style.opacity = '0.8';
+        canvas.style.pointerEvents = 'none';
+        document.body.appendChild(canvas);
+
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < Math.floor(canvas.width / 20); i++) {
+          streams.push({
+            x: i * 20,
+            y: Math.random() * -100,
+            speed: 3 + Math.random() * 5,
+            chars: Array(Math.floor(5 + Math.random() * 15)).fill().map(() => chars[Math.floor(Math.random() * chars.length)])
+          });
+        }
+
+        let frameId;
+        function animate() {
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#0F0';
+          ctx.font = '15px monospace';
+
+          streams.forEach(stream => {
+            stream.chars.forEach((char, i) => {
+              ctx.fillText(char, stream.x, stream.y - i * 20);
+            });
+            stream.y += stream.speed;
+            if (stream.y > canvas.height + stream.chars.length * 20) {
+              stream.y = Math.random() * -100;
+            }
+          });
+
+          frameId = requestAnimationFrame(animate);
+        }
+
+        animate();
+        setTimeout(() => {
+          cancelAnimationFrame(frameId);
+          document.body.removeChild(canvas);
+        }, 4000);
+      }
     })();
   </script>
 </body>
